@@ -78,11 +78,11 @@ public class TCPClient {
     private static void compararHashClienteServidor(DataOutputStream enviarTextoAServidor, String claveSimetricaServidor, String hashServidor, String msgDesencriptado, String hashCliente) throws IOException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
         if (hashCliente.equals(hashServidor)) {
             System.out.println("\n\n********* Archivo recibido satisfactoriamente *********");
+            guardarFichero(msgDesencriptado);
             //enviarTextoAServidor.writeUTF(CifrarYDescifrar.encriptarAES("¡Texto recibido con éxito en el cliente!", claveSimetricaServidor));
         } else {
             System.out.println("\n\n######### Error al descargar el fichero #########");
             //enviarTextoAServidor.writeUTF(CifrarYDescifrar.encriptarAES("¡Algo ha fallado en la transferencia del texto al cliente....!", claveSimetricaServidor));
-            guardarFichero(msgDesencriptado);
         }
     }
 
